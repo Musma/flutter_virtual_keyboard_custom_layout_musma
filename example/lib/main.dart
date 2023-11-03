@@ -56,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
   TypeLayout typeLayout = TypeLayout.alphabet;
 
   // custom sumit
-  late String userLanguage = "";
+  late String userLanguage = "english";
   // custom ends
 
   @override

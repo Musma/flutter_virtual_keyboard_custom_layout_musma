@@ -8,6 +8,7 @@ extension TypeLayoutExtension on TypeLayout {
     switch (this) {
       case TypeLayout.alphabet:
         return [
+          ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
           ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
           ["a", "s", "d", "f", "g", "h", "j", "k", "l"],
           ["SHIFT", "z", "x", "c", "v", "b", "n", "m", "BACKSPACE"],
@@ -53,7 +54,7 @@ extension TypeLayoutExtension on TypeLayout {
         return [
           ['क', 'ख', 'ग', 'घ', 'ङ', 'च', 'छ', 'ज', 'झ', 'ञ'],
           ['ट', 'ठ', 'ड', 'ढ', 'ण', 'त', 'थ', 'द', 'ध', 'न'],
-          ['प', 'फ', 'ब', 'भ', 'म', 'य', 'र', 'ल', 'व', 'श', "BACKSPACE"],
+          ['प', 'फ', 'ब', 'भ', 'म', 'य', 'र', 'ल', 'ळ', 'व', 'श', "BACKSPACE"],
           ['HindiLayout1', 'ष', 'स', 'ह', 'ज्ञ', 'क्ष', 'श्र', 'ऋ', 'ॠ'],
           ["NumbersAndSymbols", "SPACE", "RETURN"],
         ];
@@ -62,7 +63,7 @@ extension TypeLayoutExtension on TypeLayout {
           ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
           ['अ', 'आ', 'इ', 'ई', 'उ', 'ऊ', 'ए', 'ऐ', 'ओ', 'औ'],
           ['अं', 'अः', 'ा', 'ि', 'ी', 'ु', 'ू', 'े', 'ै', 'ो', "BACKSPACE"],
-          ['HindiLayout1', 'ौ', 'ं', 'ृ', 'ॄ', 'ॢ', 'ॣ', '्', 'ॐ', '।', '॥'],
+          ['HindiLayout1', 'ौ', 'ं', 'ृ', '्', 'ॐ', '।', '॥'],
           ["NumbersAndSymbols", "SPACE", "RETURN"],
         ];
       default:

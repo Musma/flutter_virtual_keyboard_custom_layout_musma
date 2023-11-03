@@ -130,11 +130,11 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
           if (textController.selection
               .textInside(textController.text)
               .isNotEmpty) {
-            textController.text
-                .split(textController.selection.textInside(textController.text))
-                .forEach((element) {
-              newText += element;
-            });
+            int startIndex = textController.selection.start;
+            int lastIndex = textController.selection.end;
+            newText =
+                textController.text.replaceRange(startIndex, lastIndex, "");
+
             newSelection = TextSelection.collapsed(offset: currentOffset);
             textController.value =
                 TextEditingValue(text: newText, selection: newSelection);
