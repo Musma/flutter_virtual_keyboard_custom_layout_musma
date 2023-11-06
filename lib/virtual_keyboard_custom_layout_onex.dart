@@ -3,6 +3,7 @@ library virtual_keyboard_custom_layout_onex;
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/services.dart';
 
 part './src/key_action.dart';
 part './src/key_type.dart';

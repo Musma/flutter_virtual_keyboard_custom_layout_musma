@@ -25,6 +25,11 @@ class KeyboardAux extends StatefulWidget {
 bool shiftEnabled = false;
 
 class _KeyboardAuxState extends State<KeyboardAux> {
+// Function to check the screen orientation
+  bool isLandscape(BuildContext context) {
+    return MediaQuery.of(context).orientation == Orientation.landscape;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,9 +39,11 @@ class _KeyboardAuxState extends State<KeyboardAux> {
         child: Container(
           color: const Color.fromARGB(192, 199, 199, 199),
           child: VirtualKeyboard(
-            height: MediaQuery.of(context).size.height * 0.4,
+            height: isLandscape(context)
+                ? MediaQuery.of(context).size.height * 0.4 // Landscape mode
+                : MediaQuery.of(context).size.height * 0.33, // Portrait mode
             width: MediaQuery.of(context).size.width,
-            fontSize: 26,
+            fontSize: 20,
             textColor: const Color.fromARGB(255, 0, 0, 0),
             textController: widget.controller,
             defaultLayouts: const [
