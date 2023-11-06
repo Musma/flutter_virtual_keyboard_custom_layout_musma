@@ -1,8 +1,9 @@
 name: virtual_keyboard_custom_layout_onex
-description: "by sumit-onex: custom keyboard supporting english hindi marathi and symbols. free to modify and use"
-version: 0.0.6
-#author: Ahmed El-Araby <ahmed-eg@live.com> (multi_language)--> Custom Layout Version by Elias Dalvite <https://github.com/EliasDalvite>
-# homepage: https://github.com/EliasDalvite/virtual_keyboard_custom_layout_onex
+description: "Custom in App keyboard supporting English, Hindi, Marathi and Symbols."
+version: 0.0.7
+screenshots:path: "https://raw.githubusercontent.com/ysumiit005/virtual_keyboard_custom_layout_onex/master/s3.jpg"
+repository: "https://github.com/ysumiit005/virtual_keyboard_custom_layout_onex"
+issue_tracker: "https://github.com/ysumiit005/virtual_keyboard_custom_layout_onex/issues"
 
 topics:
   - keyboard

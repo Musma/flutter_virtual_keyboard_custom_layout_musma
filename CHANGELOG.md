@@ -1,4 +1,9 @@
-## 0.0.5
+## 0.0.7
+
+- Documentation and Readme.md updated
+
+
+## 0.0.6
 
 - UI enhanced ;-)
 - production grade 1

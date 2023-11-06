@@ -2,6 +2,10 @@
 
 Attribution to dev -  EliasDalvite and owner of virtual_keyboard_multi_language
 
+# help/support 
+- Message on linkedin for priority help related to this package or if need to contact me for any issues 
+- https://www.linkedin.com/in/sumiit-yadav/ 
+
 # Goal
 - keyboard with no clipboard
 - hindi keyboard (devnagri - india)
