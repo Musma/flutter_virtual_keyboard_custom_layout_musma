@@ -14,7 +14,7 @@ Attribution to dev -  EliasDalvite and owner of virtual_keyboard_multi_language
 
 <br>
 <p align="center">
-<img style="height:200px;" alt="FlutterBlue" src="https://github.com/ysumiit005/virtual_keyboard_custom_layout_onex/blob/master/s1.jpg?raw=true" />
+<img style="width:200px;" alt="FlutterBlue" src="https://github.com/ysumiit005/virtual_keyboard_custom_layout_onex/blob/master/s1.jpg?raw=true" />
 </p>
 <br>
 <p align="center">
@@ -22,13 +22,13 @@ Attribution to dev -  EliasDalvite and owner of virtual_keyboard_multi_language
 </p>
 <br>
 <p align="center">
-<img style="height:200px;" alt="FlutterBlue" src="https://github.com/ysumiit005/virtual_keyboard_custom_layout_onex/blob/master/s3.jpg?raw=true" />
+<img style="width:200px;" alt="FlutterBlue" src="https://github.com/ysumiit005/virtual_keyboard_custom_layout_onex/blob/master/s3.jpg?raw=true" />
 </p>
 <p align="center">
 <img style="height:200px;" alt="FlutterBlue" src="https://github.com/ysumiit005/virtual_keyboard_custom_layout_onex/blob/master/s4.jpg?raw=true" />
 </p>
 <p align="center">
-<img style="height:200px;" alt="FlutterBlue" src="https://github.com/ysumiit005/virtual_keyboard_custom_layout_onex/blob/master/s5.jpg?raw=true" />
+<img style="width:200px;" alt="FlutterBlue" src="https://github.com/ysumiit005/virtual_keyboard_custom_layout_onex/blob/master/s5.jpg?raw=true" />
 </p>
 <hr>
 
