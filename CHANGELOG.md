@@ -1,3 +1,7 @@
+## 0.0.8
+
+- adding images
+
 ## 0.0.7
 
 - Documentation and Readme.md updated
