@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:virtual_keyboard_custom_layout_onex/virtual_keyboard_custom_layout_onex.dart';
-import 'package:virtual_keyboard_custom_layout_example/keyboard_aux.dart';
-import 'package:virtual_keyboard_custom_layout_example/types_keyboard.dart';
 
 void main() => runApp(const MyApp());
 
@@ -70,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Select Layout'),
+          title: const Text('Select Layout'),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -119,109 +117,83 @@ class _MyHomePageState extends State<MyHomePage> {
             IconButton(
                 onPressed: () {
                   showSelectionDialog();
-                  // setState(() {
-                  //   isKeyboardVisible = true;
-                  //   typeLayout = TypeLayout.hindi1;
-                  // });
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.one_k,
                 ))
           ],
         ),
-        body: Center(
-          child: Column(
-            children: <Widget>[
-              TextFormField(
-                // To prevent overflow with android and ios native keyboard
-                keyboardType: TextInputType.none,
-                controller: controllerField01,
-                maxLines: null,
-                minLines: null,
-                onTap: () {
-                  setState(() {
-                    isKeyboardVisible = true;
-                    controllerKeyboard = controllerField01;
-                    // typeLayout = TypeLayout.hindi1;
-                  });
-                },
-              ),
-              TextFormField(
-                keyboardType: TextInputType.none,
-                controller: controllerField02,
-                maxLines: null,
-                minLines: null,
-                onTap: () {
-                  setState(() {
-                    isKeyboardVisible = true;
-                    controllerKeyboard = controllerField02;
-                    // typeLayout = TypeLayout.alphaEmail;
-                  });
-                },
-              ),
-              TextFormField(
-                keyboardType: TextInputType.none,
-                controller: controllerField03,
-                maxLines: null,
-                minLines: null,
-                onTap: () {
-                  setState(() {
-                    isKeyboardVisible = true;
-                    controllerKeyboard = controllerField03;
-                    // typeLayout = TypeLayout.numeric;
-                  });
-                },
-              ),
-              Expanded(
-                child: Container(),
-              ),
-              if (isKeyboardVisible)
-                Stack(children: [
-                  KeyboardAux(
-                    alwaysCaps: false,
-                    controller: controllerKeyboard,
-                    typeLayout: typeLayout,
-                    typeKeyboard: VirtualKeyboardType.Custom,
-                    keyboardLanguage: userLanguage,
+        body: Stack(
+          children: [
+            //
+            //
+            //
+            Center(
+              child: Column(
+                children: <Widget>[
+                  TextFormField(
+                    // To prevent overflow with android and ios native keyboard
+                    keyboardType: TextInputType.none,
+                    controller: controllerField01,
+                    maxLines: null,
+                    minLines: null,
+                    onTap: () {
+                      setState(() {
+                        isKeyboardVisible = true;
+                        controllerKeyboard = controllerField01;
+                        // typeLayout = TypeLayout.hindi1;
+                      });
+                    },
                   ),
-                ]),
-            ],
-          ),
+                  TextFormField(
+                    keyboardType: TextInputType.none,
+                    controller: controllerField02,
+                    maxLines: null,
+                    minLines: null,
+                    onTap: () {
+                      setState(() {
+                        isKeyboardVisible = true;
+                        controllerKeyboard = controllerField02;
+                        // typeLayout = TypeLayout.alphaEmail;
+                      });
+                    },
+                  ),
+                  TextFormField(
+                    keyboardType: TextInputType.none,
+                    controller: controllerField03,
+                    maxLines: null,
+                    minLines: null,
+                    onTap: () {
+                      setState(() {
+                        isKeyboardVisible = true;
+                        controllerKeyboard = controllerField03;
+                        // typeLayout = TypeLayout.numeric;
+                      });
+                    },
+                  ),
+                  Expanded(
+                    child: Container(),
+                  ),
+                ],
+              ),
+            ),
+            //
+            //
+            // sumit onex special keyboard
+            //
+            //
+            if (isKeyboardVisible)
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: KeyboardAux(
+                  controller: controllerKeyboard,
+                  typeLayout: typeLayout,
+                  keyboardLanguage: userLanguage,
+                ),
+              ),
+          ],
         ),
       ),
     );
-  }
-
-  keyboardListeners() {
-    // Making the return function properly.
-    controllerField01.addListener(() {
-      if (controllerField01.value.text.endsWith("\n")) {
-        controllerField01.text =
-            controllerField01.value.text.replaceAll("\n", "");
-        setState(() {
-          controllerKeyboard = controllerField02;
-          typeLayout = TypeLayout.alphaEmail;
-        });
-      }
-    });
-    controllerField02.addListener(() {
-      if (controllerField02.value.text.endsWith("\n")) {
-        controllerField02.text =
-            controllerField02.value.text.replaceAll("\n", "");
-        setState(() {
-          controllerKeyboard = controllerField03;
-          typeLayout = TypeLayout.numeric;
-        });
-      }
-    });
-    controllerField03.addListener(() {
-      if (controllerField03.value.text.endsWith("\n")) {
-        controllerField03.text =
-            controllerField03.value.text.replaceAll("\n", "");
-        setState(() {
-          isKeyboardVisible = false;
-        });
-      }
-    });
   }
 }

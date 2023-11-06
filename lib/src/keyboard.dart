@@ -102,6 +102,10 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
   bool isShiftEnabled = false;
 
   void _onKeyPress(VirtualKeyboardKey key) {
+    //custom sumit code
+    print("haptic");
+    HapticFeedback.lightImpact();
+    //ends
     final currentOffset = textController.selection.baseOffset == -1
         ? textController.text.length
         : textController.selection.baseOffset;
@@ -278,7 +282,7 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
       height: height,
       width: width ?? MediaQuery.of(context).size.width,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: _rows(),
       ),
@@ -365,10 +369,14 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
         _onKeyPress(key);
       },
       child: Container(
-        decoration:
-            BoxDecoration(border: Border.all(color: borderColor, width: 0)),
+        margin: const EdgeInsets.all(2),
+        decoration: const BoxDecoration(
+            // border: Border.all(color: borderColor, width: 0),
+            borderRadius: BorderRadius.all(Radius.circular(5)),
+            // shape: BoxShape.circle,
+            color: Colors.white),
         height: customKeys
-            ? height / keys.length
+            ? height / (keys.length + 1)
             : height / customLayoutKeys.activeLayout.length,
         child: Center(
             child: Text(
@@ -424,7 +432,7 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
         break;
       case VirtualKeyboardKeyAction.Space:
         actionKey = actionKey = Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 0.0),
           child: Icon(Icons.space_bar, color: textColor),
         );
         break;
@@ -487,11 +495,15 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
         _onKeyPress(key);
       },
       child: Container(
-        decoration:
-            BoxDecoration(border: Border.all(color: borderColor, width: 0)),
+        margin: const EdgeInsets.all(3),
+        decoration: const BoxDecoration(
+            // border: Border.all(color: borderColor, width: 0),
+            borderRadius: BorderRadius.all(Radius.circular(5)),
+            // shape: BoxShape.circle,
+            color: Colors.blueGrey),
         alignment: Alignment.center,
         height: customKeys
-            ? height / keys.length
+            ? height / (keys.length + 1)
             : height / customLayoutKeys.activeLayout.length,
         child: actionKey,
       ),
@@ -499,9 +511,9 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
 
     if (key.action == VirtualKeyboardKeyAction.Space) {
       return Container(
-          decoration:
-              BoxDecoration(border: Border.all(color: borderColor, width: 0)),
-          width: (width ?? MediaQuery.of(context).size.width) / 3,
+          // decoration:
+          //     BoxDecoration(border: Border.all(color: borderColor, width: 0)),
+          width: (width ?? MediaQuery.of(context).size.width) / 2,
           child: wdgt);
     } else {
       return Expanded(child: wdgt);

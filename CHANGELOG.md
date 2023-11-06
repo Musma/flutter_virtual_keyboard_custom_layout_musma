@@ -1,3 +1,11 @@
+## 0.0.4
+
+- Solved backspace button functionality
+
+## 0.0.4
+
+- Solved backspace button functionality
+
 ## 0.0.3
 
 - Minor Bug Solved - added gif

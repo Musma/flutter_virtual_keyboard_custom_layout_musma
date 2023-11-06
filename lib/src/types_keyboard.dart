@@ -1,3 +1,5 @@
+part of virtual_keyboard_custom_layout_onex;
+
 /// alphabet: all letters, return, backspace, shift, space.
 /// numeric: 0-9, return, backspace.
 /// alphaEmail: all letters, 0-9, [. - _ @], @gmail.com.
@@ -12,7 +14,7 @@ extension TypeLayoutExtension on TypeLayout {
           ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
           ["a", "s", "d", "f", "g", "h", "j", "k", "l"],
           ["SHIFT", "z", "x", "c", "v", "b", "n", "m", "BACKSPACE"],
-          ["NumbersAndSymbols", "SPACE", "RETURN"],
+          ["NumbersAndSymbols", ",", "SPACE", ".", "RETURN"],
         ];
       // case TypeLayout.numeric:
       //   return [
@@ -27,7 +29,7 @@ extension TypeLayoutExtension on TypeLayout {
           ["@", "#", "\$", "_", "&", "-", "+", "(", ")", "/"],
           ["*", "\"", "'", ":", ";", "!", "?", ",", "."],
           ["SHIFT", "=", "{", "}", "[", "]", "\\", "%", "BACKSPACE"],
-          ["NumbersAndSymbols", "SPACE", "RETURN"],
+          ["NumbersAndSymbols", ",", "SPACE", ".", "RETURN"],
           // ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
           // ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "BACKSPACE"],
           // ["a", "s", "d", "f", "g", "h", "j", "k", "l", "ç", "RETURN"],
@@ -54,17 +56,27 @@ extension TypeLayoutExtension on TypeLayout {
         return [
           ['क', 'ख', 'ग', 'घ', 'ङ', 'च', 'छ', 'ज', 'झ', 'ञ'],
           ['ट', 'ठ', 'ड', 'ढ', 'ण', 'त', 'थ', 'द', 'ध', 'न'],
-          ['प', 'फ', 'ब', 'भ', 'म', 'य', 'र', 'ल', 'ळ', 'व', 'श', "BACKSPACE"],
-          ['HindiLayout1', 'ष', 'स', 'ह', 'ज्ञ', 'क्ष', 'श्र', 'ऋ', 'ॠ'],
-          ["NumbersAndSymbols", "SPACE", "RETURN"],
+          ['प', 'फ', 'ब', 'भ', 'म', 'य', 'र', 'ल', 'ळ', 'व', 'श'],
+          [
+            'HindiLayout1',
+            'ष',
+            'स',
+            'ह',
+            'ज्ञ',
+            'क्ष',
+            'श्र',
+            'ऋ',
+            "BACKSPACE",
+          ],
+          ["NumbersAndSymbols", ",", "SPACE", ".", "RETURN"],
         ];
       case TypeLayout.hindi2:
         return [
           ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
           ['अ', 'आ', 'इ', 'ई', 'उ', 'ऊ', 'ए', 'ऐ', 'ओ', 'औ'],
-          ['अं', 'अः', 'ा', 'ि', 'ी', 'ु', 'ू', 'े', 'ै', 'ो', "BACKSPACE"],
-          ['HindiLayout1', 'ौ', 'ं', 'ृ', '्', 'ॐ', '।', '॥'],
-          ["NumbersAndSymbols", "SPACE", "RETURN"],
+          ['अं', 'अः', 'ा', 'ि', 'ी', 'ु', 'ू', 'े', 'ै', 'ो'],
+          ['HindiLayout1', 'ौ', 'ं', 'ृ', '्', 'ॐ', '।', '॥', "BACKSPACE"],
+          ["NumbersAndSymbols", ",", "SPACE", ".", "RETURN"],
         ];
       default:
         return [];

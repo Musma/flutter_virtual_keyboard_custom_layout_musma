@@ -17,7 +17,7 @@ class KeyboardAux extends StatefulWidget {
     this.controller,
     this.typeLayout = TypeLayout.alphaEmail,
     this.keyboardLanguage,
-    required this.typeKeyboard,
+    this.typeKeyboard = VirtualKeyboardType.Custom,
   }) : super(key: key);
 
   @override
@@ -36,7 +36,7 @@ class _KeyboardAuxState extends State<KeyboardAux> {
         child: Container(
           color: const Color.fromARGB(192, 199, 199, 199),
           child: VirtualKeyboard(
-            height: MediaQuery.of(context).size.height * 0.35,
+            height: MediaQuery.of(context).size.height * 0.4,
             width: MediaQuery.of(context).size.width,
             fontSize: 26,
             textColor: const Color.fromARGB(255, 0, 0, 0),
