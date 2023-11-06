@@ -1,3 +1,9 @@
+## 0.0.9
+
+- landscape mode solved 
+- better UX and UI
+- production quality 2
+
 ## 0.0.8
 
 - adding images

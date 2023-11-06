@@ -14,6 +14,8 @@ Attribution to dev -  EliasDalvite and owner of virtual_keyboard_multi_language
 - symbols supported
 - good UI (on demand customisable)
 - easy customised modifiable keyboard for other languages aswell
+- landscape supported
+- contact for adding more language support customised way
 
 
 <br>
