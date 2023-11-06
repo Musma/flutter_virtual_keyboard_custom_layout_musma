@@ -1,6 +1,12 @@
-## 0.0.4
+## 0.0.5
 
-- Solved backspace button functionality
+- UI enhanced ;-)
+- production grade 1
+- adaptable to screen rotation
+
+## 0.0.5
+
+- formatting
 
 ## 0.0.4
 
