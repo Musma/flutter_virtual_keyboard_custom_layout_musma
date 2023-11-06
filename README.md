@@ -18,7 +18,7 @@ Attribution to dev -  EliasDalvite and owner of virtual_keyboard_multi_language
 </p>
 <br>
 <p align="center">
-<img style="height:200px;" alt="FlutterBlue" src="https://github.com/ysumiit005/virtual_keyboard_custom_layout_onex/blob/master/s2.jpg?raw=true" />
+<img style="width:200px;" alt="FlutterBlue" src="https://github.com/ysumiit005/virtual_keyboard_custom_layout_onex/blob/master/s2.jpg?raw=true" />
 </p>
 <br>
 <p align="center">
