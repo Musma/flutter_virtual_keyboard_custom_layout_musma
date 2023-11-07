@@ -97,6 +97,14 @@ class _KeyboardAuxState extends State<KeyboardAux> {
               widget.typeLayout = TypeLayout.hindi1;
             }
           }
+          if (widget.keyboardLanguage == "marathi") {
+            if (widget.typeLayout == TypeLayout.marathi1 ||
+                widget.typeLayout == TypeLayout.marathi2) {
+              widget.typeLayout = TypeLayout.alphaEmail;
+            } else if (widget.typeLayout == TypeLayout.alphaEmail) {
+              widget.typeLayout = TypeLayout.marathi1;
+            }
+          }
           break;
         // custom end
         // custom sumit
@@ -105,6 +113,13 @@ class _KeyboardAuxState extends State<KeyboardAux> {
             widget.typeLayout = TypeLayout.hindi2;
           } else if (widget.typeLayout == TypeLayout.hindi2) {
             widget.typeLayout = TypeLayout.hindi1;
+          }
+          break;
+        case VirtualKeyboardKeyAction.MarathiLayout1:
+          if (widget.typeLayout == TypeLayout.marathi1) {
+            widget.typeLayout = TypeLayout.marathi2;
+          } else if (widget.typeLayout == TypeLayout.marathi2) {
+            widget.typeLayout = TypeLayout.marathi1;
           }
           break;
         // custom end

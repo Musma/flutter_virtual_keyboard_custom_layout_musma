@@ -463,6 +463,16 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
           style: TextStyle(fontWeight: FontWeight.bold),
         );
         break;
+      case VirtualKeyboardKeyAction.MarathiLayout1:
+        // actionKey = Icon(
+        //   Icons.language_rounded,
+        //   color: textColor,
+        // );
+        actionKey = const Text(
+          "more",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        );
+        break;
 
       // custom end
       case VirtualKeyboardKeyAction.SwitchLanguage:

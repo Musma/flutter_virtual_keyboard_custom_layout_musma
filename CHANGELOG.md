@@ -1,3 +1,7 @@
+## 0.0.11
+
+- seperate hindi and marathi as two seperate keyboards
+
 ## 0.0.10
 
 - enhanced UI

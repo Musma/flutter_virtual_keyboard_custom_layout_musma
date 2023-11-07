@@ -117,6 +117,11 @@ List<VirtualKeyboardKey> _getKeyboardRowsCustom(List rowNum) {
             keyType: VirtualKeyboardKeyType.Action,
             action: VirtualKeyboardKeyAction.HindiLayout1));
         break;
+      case "MarathiLayout1":
+        rowKeys.add(VirtualKeyboardKey(
+            keyType: VirtualKeyboardKeyType.Action,
+            action: VirtualKeyboardKeyAction.MarathiLayout1));
+        break;
       // custom end
       case "SHIFT":
         rowKeys.add(VirtualKeyboardKey(

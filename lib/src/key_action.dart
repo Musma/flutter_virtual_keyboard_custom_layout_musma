@@ -10,5 +10,6 @@ enum VirtualKeyboardKeyAction {
   Space,
   SwitchLanguage,
   NumbersAndSymbols,
-  HindiLayout1
+  HindiLayout1,
+  MarathiLayout1
 }
