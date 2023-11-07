@@ -418,12 +418,13 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
               // Cancel event loop
               longPress = false;
             },
-            child: SizedBox(
+            child: const SizedBox(
               height: double.infinity,
               width: double.infinity,
               child: Icon(
                 Icons.backspace,
-                color: textColor,
+                color: Colors.white,
+                size: 16,
               ),
             ));
         break;
@@ -510,7 +511,7 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
     );
 
     if (key.action == VirtualKeyboardKeyAction.Space) {
-      return Container(
+      return SizedBox(
           // decoration:
           //     BoxDecoration(border: Border.all(color: borderColor, width: 0)),
           width: (width ?? MediaQuery.of(context).size.width) / 2,

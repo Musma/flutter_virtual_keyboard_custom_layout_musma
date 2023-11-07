@@ -2,9 +2,6 @@
 
 Attribution to dev -  EliasDalvite and owner of virtual_keyboard_multi_language
 
-# help/support 
-- Message on linkedin for priority help related to this package or if need to contact me for any issues 
-- https://www.linkedin.com/in/sumiit-yadav/ 
 
 # Goal
 - keyboard with no clipboard
@@ -15,7 +12,7 @@ Attribution to dev -  EliasDalvite and owner of virtual_keyboard_multi_language
 - good UI (on demand customisable)
 - easy customised modifiable keyboard for other languages aswell
 - landscape supported
-- contact for adding more language support customised way
+
 
 
 <br>
@@ -241,6 +238,11 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 ```
 
+
+
+# help/support 
+- Message on linkedin for priority help related to this package or if need to contact me for any issues 
+- https://www.linkedin.com/in/sumiit-yadav/ 
 
 
 - [Onex Sumit](https://github.com/ysumiit005)

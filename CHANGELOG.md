@@ -1,3 +1,7 @@
+## 0.0.10
+
+- enhanced UI
+
 ## 0.0.9
 
 - landscape mode solved 

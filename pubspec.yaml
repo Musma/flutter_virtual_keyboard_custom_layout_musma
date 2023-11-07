@@ -1,7 +1,6 @@
 name: virtual_keyboard_custom_layout_onex
-description: "Custom in App keyboard supporting English, Hindi, Marathi and Symbols."
-version: 0.0.9
-screenshots:path: "https://raw.githubusercontent.com/ysumiit005/virtual_keyboard_custom_layout_onex/master/s3.jpg?raw=true"
+description: "Custom in App keyboard supporting English, Hindi, Marathi and Symbols. Nice UI/UX"
+version: 0.0.10
 repository: "https://github.com/ysumiit005/virtual_keyboard_custom_layout_onex"
 issue_tracker: "https://github.com/ysumiit005/virtual_keyboard_custom_layout_onex/issues"
 
