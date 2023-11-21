@@ -1,10 +1,10 @@
 part of virtual_keyboard_custom_layout_onex;
 
 class KeyboardAux extends StatefulWidget {
-  TextEditingController? controller;
-  VirtualKeyboardType typeKeyboard;
+  final TextEditingController? controller;
+  final VirtualKeyboardType typeKeyboard;
   TypeLayout typeLayout;
-  bool alwaysCaps;
+  final bool alwaysCaps;
   String text = "";
   // custom sumit
   String? keyboardLanguage = 'english';

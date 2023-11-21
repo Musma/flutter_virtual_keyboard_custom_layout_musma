@@ -102,10 +102,6 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
   bool isShiftEnabled = false;
 
   void _onKeyPress(VirtualKeyboardKey key) {
-    //custom sumit code
-    print("haptic");
-    HapticFeedback.lightImpact();
-    //ends
     final currentOffset = textController.selection.baseOffset == -1
         ? textController.text.length
         : textController.selection.baseOffset;
@@ -366,6 +362,10 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
     return Expanded(
         child: InkWell(
       onTap: () {
+        //custom sumit code
+        print("haptic");
+        HapticFeedback.lightImpact();
+        //ends
         _onKeyPress(key);
       },
       child: Container(
@@ -400,6 +400,10 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
         actionKey = GestureDetector(
             onLongPress: () {
               print(" onlongpress ");
+              //custom sumit code
+              print("haptic");
+              HapticFeedback.lightImpact();
+              //ends
               longPress = true;
               // Start sending backspace key events while longPress is true
               Timer.periodic(
@@ -495,6 +499,10 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
 
     var wdgt = InkWell(
       onTap: () {
+        //custom sumit code
+        print("haptic");
+        HapticFeedback.lightImpact();
+        //ends
         if (key.action == VirtualKeyboardKeyAction.Shift) {
           if (!alwaysCaps) {
             setState(() {
