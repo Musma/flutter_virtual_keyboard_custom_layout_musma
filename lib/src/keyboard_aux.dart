@@ -1,5 +1,6 @@
 part of virtual_keyboard_custom_layout_onex;
 
+// ignore: must_be_immutable
 class KeyboardAux extends StatefulWidget {
   final TextEditingController? controller;
   final VirtualKeyboardType typeKeyboard;
@@ -40,8 +41,8 @@ class _KeyboardAuxState extends State<KeyboardAux> {
           color: const Color.fromARGB(192, 199, 199, 199),
           child: VirtualKeyboard(
             height: isLandscape(context)
-                ? MediaQuery.of(context).size.height * 0.4 // Landscape mode
-                : MediaQuery.of(context).size.height * 0.33, // Portrait mode
+                ? MediaQuery.of(context).size.height * 0.6 // Landscape mode
+                : MediaQuery.of(context).size.height * 0.35, // Portrait mode
             width: MediaQuery.of(context).size.width,
             fontSize: 20,
             textColor: const Color.fromARGB(255, 0, 0, 0),

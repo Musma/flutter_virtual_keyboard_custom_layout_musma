@@ -4,7 +4,7 @@ part of virtual_keyboard_custom_layout_onex;
 ///  `height` argument to `VirtualKeyboard` widget.
 const double _virtualKeyboardDefaultHeight = 300;
 
-const int _virtualKeyboardBackspaceEventPerioud = 50;
+const int _virtualKeyboardBackspaceEventPerioud = 0;
 
 /// Virtual Keyboard widget.
 class VirtualKeyboard extends StatefulWidget {
@@ -363,8 +363,8 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
         child: InkWell(
       onTap: () {
         //custom sumit code
-        print("haptic");
-        HapticFeedback.lightImpact();
+        // print("haptic");
+        // HapticFeedback.lightImpact();
         //ends
         _onKeyPress(key);
       },
@@ -464,7 +464,9 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
         // );
         actionKey = const Text(
           "more",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
         );
         break;
       case VirtualKeyboardKeyAction.MarathiLayout1:
@@ -500,8 +502,8 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
     var wdgt = InkWell(
       onTap: () {
         //custom sumit code
-        print("haptic");
-        HapticFeedback.lightImpact();
+        // print("haptic");
+        // HapticFeedback.lightImpact();
         //ends
         if (key.action == VirtualKeyboardKeyAction.Shift) {
           if (!alwaysCaps) {

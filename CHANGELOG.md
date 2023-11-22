@@ -1,3 +1,12 @@
+## 1.0.1
+
+- change more button position to left ✅
+- remove haptic from each key ✅
+- backspace reduce milliseconds ✅
+- give fullstop in marathi keyboard ✅
+- remove haptic from special keys ✅
+
+
 ## 1.0.0
 
 - haptic only once on backspace 
