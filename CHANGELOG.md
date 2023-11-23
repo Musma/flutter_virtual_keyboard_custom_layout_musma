@@ -1,3 +1,7 @@
+## 1.0.2
+
+- reduce backspace speed for continuos removing letters
+
 ## 1.0.1
 
 - change more button position to left ✅

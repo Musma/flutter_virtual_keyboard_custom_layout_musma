@@ -4,7 +4,7 @@ part of virtual_keyboard_custom_layout_onex;
 ///  `height` argument to `VirtualKeyboard` widget.
 const double _virtualKeyboardDefaultHeight = 300;
 
-const int _virtualKeyboardBackspaceEventPerioud = 0;
+const int _virtualKeyboardBackspaceEventPerioud = 30;
 
 /// Virtual Keyboard widget.
 class VirtualKeyboard extends StatefulWidget {
