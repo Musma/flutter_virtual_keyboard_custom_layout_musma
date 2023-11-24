@@ -398,39 +398,39 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
     switch (key.action ?? VirtualKeyboardKeyAction.SwitchLanguage) {
       case VirtualKeyboardKeyAction.Backspace:
         actionKey = GestureDetector(
-            onLongPress: () {
-              print(" onlongpress ");
-              //custom sumit code
-              print("haptic");
-              HapticFeedback.lightImpact();
-              //ends
-              longPress = true;
-              // Start sending backspace key events while longPress is true
-              Timer.periodic(
-                  const Duration(
-                      milliseconds: _virtualKeyboardBackspaceEventPerioud),
-                  (timer) {
-                if (longPress) {
-                  _onKeyPress(key);
-                } else {
-                  // Cancel timer.
-                  timer.cancel();
-                }
-              });
-            },
-            onLongPressUp: () {
-              // Cancel event loop
-              longPress = false;
-            },
+            // onLongPress: () {
+            //   print(" onlongpress ");
+            //   //custom sumit code
+            //   print("haptic");
+            //   HapticFeedback.lightImpact();
+            //   //ends
+            //   longPress = true;
+            //   // Start sending backspace key events while longPress is true
+            //   Timer.periodic(
+            //       const Duration(
+            //           milliseconds: _virtualKeyboardBackspaceEventPerioud),
+            //       (timer) {
+            //     if (longPress) {
+            //       _onKeyPress(key);
+            //     } else {
+            //       // Cancel timer.
+            //       timer.cancel();
+            //     }
+            //   });
+            // },
+            // onLongPressUp: () {
+            //   // Cancel event loop
+            //   longPress = false;
+            // },
             child: const SizedBox(
-              height: double.infinity,
-              width: double.infinity,
-              child: Icon(
-                Icons.backspace,
-                color: Colors.white,
-                size: 16,
-              ),
-            ));
+          height: double.infinity,
+          width: double.infinity,
+          child: Icon(
+            Icons.backspace,
+            color: Colors.white,
+            size: 16,
+          ),
+        ));
         break;
       case VirtualKeyboardKeyAction.Shift:
         actionKey = Icon(Icons.arrow_upward, color: textColor);
@@ -499,7 +499,7 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
         break;
     }
 
-    var wdgt = InkWell(
+    var wdgt = GestureDetector(
       onTap: () {
         //custom sumit code
         // print("haptic");
@@ -514,6 +514,29 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
         }
 
         _onKeyPress(key);
+      },
+      onLongPress: () {
+        print(" onlongpress ");
+        //custom sumit code
+        print("haptic");
+        HapticFeedback.lightImpact();
+        //ends
+        longPress = true;
+        // Start sending backspace key events while longPress is true
+        Timer.periodic(
+            const Duration(milliseconds: _virtualKeyboardBackspaceEventPerioud),
+            (timer) {
+          if (longPress) {
+            _onKeyPress(key);
+          } else {
+            // Cancel timer.
+            timer.cancel();
+          }
+        });
+      },
+      onLongPressUp: () {
+        // Cancel event loop
+        longPress = false;
       },
       child: Container(
         margin: const EdgeInsets.all(3),

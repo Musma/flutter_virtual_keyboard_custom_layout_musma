@@ -1,3 +1,10 @@
+## 1.0.3
+
+- backspace fixed for tablets 
+- added symbol and changed minor layouts
+- keyboard height reduces from 35% to 33% for better experience
+
+
 ## 1.0.2
 
 - reduce backspace speed for continuos removing letters

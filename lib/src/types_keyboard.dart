@@ -73,8 +73,8 @@ extension TypeLayoutExtension on TypeLayout {
             'ो',
             'ौ',
             'ं',
-            'ृ',
-            'ॐ',
+            'ँ',
+            'ॅ',
           ],
           ['क', 'ख', 'ग', 'घ', 'ङ', 'च', 'छ', 'ज', 'झ', 'ञ'],
           ['ट', 'ठ', 'ड', 'ढ', 'ण', 'त', 'थ', 'द', 'ध', 'न'],
@@ -92,32 +92,19 @@ extension TypeLayoutExtension on TypeLayout {
             'ष',
           ],
           ['HindiLayout1', 'स', 'ह', 'ज्ञ', 'क्ष', 'श्र', 'ऋ', "BACKSPACE"],
-          ["NumbersAndSymbols", '।', "SPACE", '्', "RETURN"],
+          ["NumbersAndSymbols", '।', "SPACE", 'त्र', '्', "RETURN"],
         ];
       case TypeLayout.hindi2:
         return [
           ['अ', 'आ', 'इ', 'ई', 'उ', 'ऊ', 'ए', 'ऐ', 'ओ', 'औ'],
           ['अं', 'अः', "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
           ['ा', 'ि', 'ी', 'ु', 'ू', 'े', 'ै', 'ो'],
-          ['HindiLayout1', 'ौ', 'ं', 'ृ', '्', 'ॐ', '।', '॥', "BACKSPACE"],
-          ["NumbersAndSymbols", '।', "SPACE", '्', "RETURN"],
+          ['HindiLayout1', 'ौ', 'ं', 'ँ', '्', 'ॐ', '।', '॥', "BACKSPACE"],
+          ["NumbersAndSymbols", '।', "SPACE", 'त्र', '्', "RETURN"],
         ];
       case TypeLayout.marathi1:
         return [
-          [
-            'ा',
-            'ि',
-            'ी',
-            'ु',
-            'ू',
-            'े',
-            'ै',
-            'ो',
-            'ौ',
-            'ं',
-            'ृ',
-            'ॐ',
-          ],
+          ['ा', 'ि', 'ी', 'ु', 'ू', 'े', 'ै', 'ो', 'ौ', 'ं', 'ँ', 'ॅ'],
           ['क', 'ख', 'ग', 'घ', 'ङ', 'च', 'छ', 'ज', 'झ', 'ञ'],
           ['ट', 'ठ', 'ड', 'ढ', 'ण', 'त', 'थ', 'द', 'ध', 'न'],
           [
@@ -144,15 +131,15 @@ extension TypeLayoutExtension on TypeLayout {
             'ऋ',
             "BACKSPACE"
           ],
-          ["NumbersAndSymbols", '.', "SPACE", '्', "RETURN"],
+          ["NumbersAndSymbols", '.', "SPACE", 'त्र', '्', "RETURN"],
         ];
       case TypeLayout.marathi2:
         return [
           ['अ', 'आ', 'इ', 'ई', 'उ', 'ऊ', 'ए', 'ऐ', 'ओ', 'औ'],
           ['अं', 'अः', "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
           ['ा', 'ि', 'ी', 'ु', 'ू', 'े', 'ै', 'ो'],
-          ['MarathiLayout1', 'ौ', 'ं', 'ृ', '्', 'ॐ', '।', '॥', "BACKSPACE"],
-          ["NumbersAndSymbols", '.', "SPACE", '्', "RETURN"],
+          ['MarathiLayout1', 'ौ', 'ं', 'ँ', '्', 'ॐ', '।', '॥', "BACKSPACE"],
+          ["NumbersAndSymbols", '.', "SPACE", 'त्र', '्', "RETURN"],
         ];
       default:
         return [];

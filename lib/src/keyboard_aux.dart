@@ -42,7 +42,7 @@ class _KeyboardAuxState extends State<KeyboardAux> {
           child: VirtualKeyboard(
             height: isLandscape(context)
                 ? MediaQuery.of(context).size.height * 0.6 // Landscape mode
-                : MediaQuery.of(context).size.height * 0.35, // Portrait mode
+                : MediaQuery.of(context).size.height * 0.33, // Portrait mode
             width: MediaQuery.of(context).size.width,
             fontSize: 20,
             textColor: const Color.fromARGB(255, 0, 0, 0),
