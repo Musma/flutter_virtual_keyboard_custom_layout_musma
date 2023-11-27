@@ -7,6 +7,7 @@ class KeyboardAux extends StatefulWidget {
   TypeLayout typeLayout;
   final bool alwaysCaps;
   String text = "";
+  final VoidCallback? languageChangeCallback;
   // custom sumit
   String? keyboardLanguage = 'english';
   // custom end
@@ -17,6 +18,7 @@ class KeyboardAux extends StatefulWidget {
     this.typeLayout = TypeLayout.alphaEmail,
     this.keyboardLanguage,
     this.typeKeyboard = VirtualKeyboardType.Custom,
+    this.languageChangeCallback
   }) : super(key: key);
 
   @override
@@ -57,7 +59,8 @@ class _KeyboardAuxState extends State<KeyboardAux> {
                 ? widget.typeLayout.keyboard
                 : [],
             onKeyPress: onKeyPress,
-          ),
+            spaceLongPressCallback: widget.languageChangeCallback
+            ),
         ),
       ),
     );

@@ -54,6 +54,8 @@ class VirtualKeyboard extends StatefulWidget {
   /// will be ignored if customLayoutKeys is not null
   final List<VirtualKeyboardDefaultLayouts>? defaultLayouts;
 
+  final VoidCallback? spaceLongPressCallback;
+
   const VirtualKeyboard(
       {Key? key,
       required this.type,
@@ -69,7 +71,8 @@ class VirtualKeyboard extends StatefulWidget {
       this.fontSize = 14,
       this.alwaysCaps = false,
       this.keys,
-      this.borderColor})
+      this.borderColor,
+      this.spaceLongPressCallback})
       : super(key: key);
 
   @override
@@ -553,12 +556,41 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
       ),
     );
 
+    var spacebarWidget = GestureDetector(
+      onTap: () {
+        _onKeyPress(key);
+      },
+      onLongPress: () {
+        // Add haptic feedback before calling the callback function
+        HapticFeedback.lightImpact();
+
+        // Call the long press callback function
+        widget.spaceLongPressCallback!();
+      },
+      onLongPressUp: () {
+        // Cancel event loop
+      },
+      child: Container(
+        margin: const EdgeInsets.all(3),
+        decoration: const BoxDecoration(
+            // border: Border.all(color: borderColor, width: 0),
+            borderRadius: BorderRadius.all(Radius.circular(5)),
+            // shape: BoxShape.circle,
+            color: Colors.blueGrey),
+        alignment: Alignment.center,
+        height: customKeys
+            ? height / (keys.length + 1)
+            : height / customLayoutKeys.activeLayout.length,
+        child: actionKey,
+      ),
+    );
+
     if (key.action == VirtualKeyboardKeyAction.Space) {
       return SizedBox(
           // decoration:
           //     BoxDecoration(border: Border.all(color: borderColor, width: 0)),
           width: (width ?? MediaQuery.of(context).size.width) / 2,
-          child: wdgt);
+          child: spacebarWidget);
     } else {
       return Expanded(child: wdgt);
     }

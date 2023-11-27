@@ -197,6 +197,9 @@ class _MyHomePageState extends State<MyHomePage> {
               Align(
                 alignment: Alignment.bottomCenter,
                 child: KeyboardAux(
+                  languageChangeCallback: () {
+                    showSelectionDialog();
+                  },
                   controller: controllerKeyboard,
                   typeLayout: typeLayout,
                   keyboardLanguage: userLanguage,

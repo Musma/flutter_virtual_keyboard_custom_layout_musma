@@ -1,3 +1,8 @@
+## 1.0.4
+
+- on spacebar lonpress change language using dialogbox 
+
+
 ## 1.0.3
 
 - backspace fixed for tablets 
