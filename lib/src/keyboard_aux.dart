@@ -11,15 +11,15 @@ class KeyboardAux extends StatefulWidget {
   // custom sumit
   String? keyboardLanguage = 'english';
   // custom end
-  KeyboardAux({
-    Key? key,
-    this.alwaysCaps = false,
-    this.controller,
-    this.typeLayout = TypeLayout.alphaEmail,
-    this.keyboardLanguage,
-    this.typeKeyboard = VirtualKeyboardType.Custom,
-    this.languageChangeCallback
-  }) : super(key: key);
+  KeyboardAux(
+      {Key? key,
+      this.alwaysCaps = false,
+      this.controller,
+      this.typeLayout = TypeLayout.alphaEmail,
+      this.keyboardLanguage,
+      this.typeKeyboard = VirtualKeyboardType.Custom,
+      this.languageChangeCallback})
+      : super(key: key);
 
   @override
   State<KeyboardAux> createState() => _KeyboardAuxState();
@@ -42,25 +42,24 @@ class _KeyboardAuxState extends State<KeyboardAux> {
         child: Container(
           color: const Color.fromARGB(192, 199, 199, 199),
           child: VirtualKeyboard(
-            height: isLandscape(context)
-                ? MediaQuery.of(context).size.height * 0.6 // Landscape mode
-                : MediaQuery.of(context).size.height * 0.33, // Portrait mode
-            width: MediaQuery.of(context).size.width,
-            fontSize: 20,
-            textColor: const Color.fromARGB(255, 0, 0, 0),
-            textController: widget.controller,
-            defaultLayouts: const [
-              VirtualKeyboardDefaultLayouts.English,
-            ],
-            alwaysCaps: widget.alwaysCaps,
-            borderColor: const Color.fromARGB(255, 151, 151, 151),
-            type: widget.typeKeyboard,
-            keys: (widget.typeKeyboard == VirtualKeyboardType.Custom)
-                ? widget.typeLayout.keyboard
-                : [],
-            onKeyPress: onKeyPress,
-            spaceLongPressCallback: widget.languageChangeCallback
-            ),
+              height: isLandscape(context)
+                  ? MediaQuery.of(context).size.height * 0.6 // Landscape mode
+                  : MediaQuery.of(context).size.height * 0.33, // Portrait mode
+              width: MediaQuery.of(context).size.width,
+              fontSize: 20,
+              textColor: const Color.fromARGB(255, 0, 0, 0),
+              textController: widget.controller,
+              defaultLayouts: const [
+                VirtualKeyboardDefaultLayouts.English,
+              ],
+              alwaysCaps: widget.alwaysCaps,
+              borderColor: const Color.fromARGB(255, 151, 151, 151),
+              type: widget.typeKeyboard,
+              keys: (widget.typeKeyboard == VirtualKeyboardType.Custom)
+                  ? widget.typeLayout.keyboard
+                  : [],
+              onKeyPress: onKeyPress,
+              spaceLongPressCallback: widget.languageChangeCallback),
         ),
       ),
     );

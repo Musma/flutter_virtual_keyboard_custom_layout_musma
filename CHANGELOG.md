@@ -1,3 +1,7 @@
+## 1.0.5
+
+- readme.md and docs
+
 ## 1.0.4
 
 - on spacebar lonpress change language using dialogbox 

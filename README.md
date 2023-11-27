@@ -108,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Select Layout'),
+          title: const Text('Select Language'),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -129,6 +129,17 @@ class _MyHomePageState extends State<MyHomePage> {
                   setState(() {
                     typeLayout = TypeLayout.hindi1;
                     userLanguage = "hindi";
+                    isKeyboardVisible = true;
+                  });
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: const Text(' Marathi Language'),
+                onTap: () {
+                  setState(() {
+                    typeLayout = TypeLayout.marathi1;
+                    userLanguage = "marathi";
                     isKeyboardVisible = true;
                   });
                   Navigator.pop(context);
@@ -226,6 +237,9 @@ class _MyHomePageState extends State<MyHomePage> {
               Align(
                 alignment: Alignment.bottomCenter,
                 child: KeyboardAux(
+                  languageChangeCallback: () {
+                    showSelectionDialog();
+                  },
                   controller: controllerKeyboard,
                   typeLayout: typeLayout,
                   keyboardLanguage: userLanguage,
