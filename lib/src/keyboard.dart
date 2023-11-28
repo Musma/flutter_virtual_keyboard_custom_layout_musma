@@ -363,33 +363,40 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
   /// Creates default UI element for keyboard Key.
   Widget _keyboardDefaultKey(VirtualKeyboardKey key) {
     return Expanded(
-        child: InkWell(
-      onTap: () {
-        //custom sumit code
-        // print("haptic");
-        // HapticFeedback.lightImpact();
-        //ends
-        _onKeyPress(key);
-      },
-      child: Container(
-        margin: const EdgeInsets.all(2),
+      child: Tooltip(
+        onTriggered: () {
+          _onKeyPress(key);
+        },
+        triggerMode: TooltipTriggerMode.tap,
+        // waitDuration: const Duration(milliseconds: 50),
+        height: 50,
         decoration: const BoxDecoration(
-            // border: Border.all(color: borderColor, width: 0),
-            borderRadius: BorderRadius.all(Radius.circular(5)),
-            // shape: BoxShape.circle,
-            color: Colors.white),
-        height: customKeys
-            ? height / (keys.length + 1)
-            : height / customLayoutKeys.activeLayout.length,
-        child: Center(
-            child: Text(
-          alwaysCaps
-              ? key.capsText ?? ''
-              : (isShiftEnabled ? key.capsText : key.text) ?? '',
-          style: textStyle,
-        )),
+          color: Colors.black,
+        ),
+        textStyle: const TextStyle(color: Colors.white, fontSize: 25),
+        preferBelow: false,
+        showDuration: const Duration(milliseconds: 150),
+        message: key.text,
+        child: Container(
+          margin: const EdgeInsets.all(2),
+          decoration: const BoxDecoration(
+              // border: Border.all(color: borderColor, width: 0),
+              borderRadius: BorderRadius.all(Radius.circular(5)),
+              // shape: BoxShape.circle,
+              color: Colors.white),
+          height: customKeys
+              ? height / (keys.length + 1)
+              : height / customLayoutKeys.activeLayout.length,
+          child: Center(
+              child: Text(
+            alwaysCaps
+                ? key.capsText ?? ''
+                : (isShiftEnabled ? key.capsText : key.text) ?? '',
+            style: textStyle,
+          )),
+        ),
       ),
-    ));
+    );
   }
 
   /// Creates default UI element for keyboard Action Key.

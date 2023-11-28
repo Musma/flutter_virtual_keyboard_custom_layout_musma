@@ -45,6 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
   TextEditingController controllerField01 = TextEditingController();
   TextEditingController controllerField02 = TextEditingController();
   TextEditingController controllerField03 = TextEditingController();
+  TextEditingController controllerField05 = TextEditingController();
 
   // key variables to utilize the keyboard with the class KeyboardAux
   var isKeyboardVisible = false;
@@ -136,9 +137,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: Stack(
           children: [
-            //
-            //
-            //
             Center(
               child: Column(
                 children: <Widget>[

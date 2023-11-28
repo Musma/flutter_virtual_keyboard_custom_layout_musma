@@ -1,3 +1,10 @@
+## 1.0.6
+
+- on key click get tooltip
+- more math symbols
+- solved special character not working in devnagri because letter was combination of more than 3 letters
+
+
 ## 1.0.5
 
 - readme.md and docs
