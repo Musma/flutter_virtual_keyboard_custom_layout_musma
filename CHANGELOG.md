@@ -1,3 +1,8 @@
+## 1.0.7
+
+- removed tooltip 
+
+
 ## 1.0.6
 
 - on key click get tooltip
