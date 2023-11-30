@@ -363,20 +363,20 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
   /// Creates default UI element for keyboard Key.
   Widget _keyboardDefaultKey(VirtualKeyboardKey key) {
     return Expanded(
-      child: Tooltip(
-        onTriggered: () {
+      child: GestureDetector(
+        onTap: () {
           _onKeyPress(key);
         },
-        triggerMode: TooltipTriggerMode.tap,
-        // waitDuration: const Duration(milliseconds: 50),
-        height: 50,
-        decoration: const BoxDecoration(
-          color: Colors.black,
-        ),
-        textStyle: const TextStyle(color: Colors.white, fontSize: 25),
-        preferBelow: false,
-        showDuration: const Duration(milliseconds: 150),
-        message: key.text,
+        // triggerMode: TooltipTriggerMode.tap,
+        // // waitDuration: const Duration(milliseconds: 50),
+        // height: 50,
+        // decoration: const BoxDecoration(
+        //   color: Colors.black,
+        // ),
+        // textStyle: const TextStyle(color: Colors.white, fontSize: 25),
+        // preferBelow: false,
+        // showDuration: const Duration(milliseconds: 150),
+        // message: key.text,
         child: Container(
           margin: const EdgeInsets.all(2),
           decoration: const BoxDecoration(
