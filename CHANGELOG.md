@@ -1,3 +1,8 @@
+## 1.0.8
+
+- UI/UX changed
+- layout minor changes
+
 ## 1.0.7
 
 - removed tooltip 

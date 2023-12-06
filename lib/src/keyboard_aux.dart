@@ -36,18 +36,19 @@ class _KeyboardAuxState extends State<KeyboardAux> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color.fromARGB(255, 255, 255, 255),
+      color: Colors.white,
       child: GestureDetector(
         onTap: () {},
         child: Container(
-          color: const Color.fromARGB(192, 199, 199, 199),
+          color: keyboardBackgroundColor,
           child: VirtualKeyboard(
               height: isLandscape(context)
                   ? MediaQuery.of(context).size.height * 0.6 // Landscape mode
                   : MediaQuery.of(context).size.height * 0.33, // Portrait mode
               width: MediaQuery.of(context).size.width,
               fontSize: 20,
-              textColor: const Color.fromARGB(255, 0, 0, 0),
+              textColor: Color.fromARGB(255, 51, 51, 51),
+              keyboardLanguage: widget.keyboardLanguage,
               textController: widget.controller,
               defaultLayouts: const [
                 VirtualKeyboardDefaultLayouts.English,

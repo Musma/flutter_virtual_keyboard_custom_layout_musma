@@ -56,6 +56,10 @@ class VirtualKeyboard extends StatefulWidget {
 
   final VoidCallback? spaceLongPressCallback;
 
+  /// keyboard langauage currently user is using
+  ///
+  final String? keyboardLanguage;
+
   const VirtualKeyboard(
       {Key? key,
       required this.type,
@@ -72,6 +76,7 @@ class VirtualKeyboard extends StatefulWidget {
       this.alwaysCaps = false,
       this.keys,
       this.borderColor,
+      this.keyboardLanguage,
       this.spaceLongPressCallback})
       : super(key: key);
 
@@ -432,12 +437,12 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
             //   // Cancel event loop
             //   longPress = false;
             // },
-            child: const SizedBox(
+            child: SizedBox(
           height: double.infinity,
           width: double.infinity,
           child: Icon(
             Icons.backspace,
-            color: Colors.white,
+            color: textColor,
             size: 16,
           ),
         ));
@@ -446,10 +451,39 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
         actionKey = Icon(Icons.arrow_upward, color: textColor);
         break;
       case VirtualKeyboardKeyAction.Space:
-        actionKey = actionKey = Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 0.0),
-          child: Icon(Icons.space_bar, color: textColor),
+        actionKey = Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                width: 20,
+              ),
+              Icon(Icons.space_bar, color: textColor),
+              if (widget.keyboardLanguage == 'english')
+                Text(
+                  'En',
+                  style: TextStyle(color: textColor),
+                ),
+              if (widget.keyboardLanguage == 'marathi')
+                Text(
+                  'Mr',
+                  style: TextStyle(color: textColor),
+                ),
+              if (widget.keyboardLanguage == 'hindi')
+                Text(
+                  'Hi',
+                  style: TextStyle(color: textColor),
+                ),
+            ],
+          ),
         );
+
+        // custom ends
+        // actionKey = Padding(
+        //   padding: const EdgeInsets.symmetric(horizontal: 0.0),
+        //   child: Icon(Icons.space_bar, color: textColor),
+        // );
         break;
       case VirtualKeyboardKeyAction.Return:
         actionKey = Icon(
@@ -554,7 +588,7 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
             // border: Border.all(color: borderColor, width: 0),
             borderRadius: BorderRadius.all(Radius.circular(5)),
             // shape: BoxShape.circle,
-            color: Colors.blueGrey),
+            color: actionButtonColor),
         alignment: Alignment.center,
         height: customKeys
             ? height / (keys.length + 1)
@@ -580,10 +614,11 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
       child: Container(
         margin: const EdgeInsets.all(3),
         decoration: const BoxDecoration(
-            // border: Border.all(color: borderColor, width: 0),
-            borderRadius: BorderRadius.all(Radius.circular(5)),
-            // shape: BoxShape.circle,
-            color: Colors.blueGrey),
+          // border: Border.all(color: borderColor, width: 0),
+          borderRadius: BorderRadius.all(Radius.circular(5)),
+          // shape: BoxShape.circle,
+          color: actionSpaceBarButtonColor,
+        ),
         alignment: Alignment.center,
         height: customKeys
             ? height / (keys.length + 1)

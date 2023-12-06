@@ -14,3 +14,5 @@ part './src/layout_keys.dart';
 part './src/layouts.dart';
 part './src/keyboard_aux.dart';
 part './src/types_keyboard.dart';
+
+part './src/keyboard_colors.dart';

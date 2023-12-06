@@ -69,11 +69,15 @@ class _MyHomePageState extends State<MyHomePage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
           title: const Text('Select Language'),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               ListTile(
+                horizontalTitleGap: 0,
+                contentPadding: EdgeInsets.zero,
                 title: const Text(' English Language '),
                 onTap: () {
                   setState(() {
@@ -85,6 +89,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ),
               ListTile(
+                horizontalTitleGap: 0,
+                contentPadding: EdgeInsets.zero,
                 title: const Text(' Hindi Language'),
                 onTap: () {
                   setState(() {
@@ -96,6 +102,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ),
               ListTile(
+                horizontalTitleGap: 0,
+                contentPadding: EdgeInsets.zero,
                 title: const Text(' Marathi Language'),
                 onTap: () {
                   setState(() {
