@@ -285,10 +285,13 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
     return SizedBox(
       height: height,
       width: width ?? MediaQuery.of(context).size.width,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: _rows(),
+      child: Padding(
+        padding: const EdgeInsets.all(0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start, // keyboard main layouts
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: _rows(),
+        ),
       ),
     );
   }
@@ -365,11 +368,18 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
   // True if long press is enabled.
   bool longPress = false;
 
+  //
+  //
+  // sumit main key UI
+  //
+  //
+
   /// Creates default UI element for keyboard Key.
   Widget _keyboardDefaultKey(VirtualKeyboardKey key) {
     return Expanded(
-      child: GestureDetector(
+      child: InkWell(
         onTap: () {
+          // HapticFeedback.lightImpact();
           _onKeyPress(key);
         },
         // triggerMode: TooltipTriggerMode.tap,
@@ -382,23 +392,33 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
         // preferBelow: false,
         // showDuration: const Duration(milliseconds: 150),
         // message: key.text,
+
         child: Container(
-          margin: const EdgeInsets.all(2),
-          decoration: const BoxDecoration(
+          margin: const EdgeInsets.symmetric(horizontal: 1, vertical: 1),
+          padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+          child: Ink(
+            height: customKeys
+                ? widget.keyboardLanguage == 'english'
+                    ? (height / (keys.length + 0.25))
+                    : (height / (keys.length + 0.4))
+                : height / customLayoutKeys.activeLayout.length,
+            decoration: const BoxDecoration(
               // border: Border.all(color: borderColor, width: 0),
               borderRadius: BorderRadius.all(Radius.circular(5)),
+              color: keyboardKeysColor,
+              // color: keyboardKeysColor,
               // shape: BoxShape.circle,
-              color: Colors.white),
-          height: customKeys
-              ? height / (keys.length + 1)
-              : height / customLayoutKeys.activeLayout.length,
-          child: Center(
-              child: Text(
-            alwaysCaps
-                ? key.capsText ?? ''
-                : (isShiftEnabled ? key.capsText : key.text) ?? '',
-            style: textStyle,
-          )),
+            ),
+            child: Container(
+              child: Center(
+                  child: Text(
+                alwaysCaps
+                    ? key.capsText ?? ''
+                    : (isShiftEnabled ? key.capsText : key.text) ?? '',
+                style: textStyle,
+              )),
+            ),
+          ),
         ),
       ),
     );
@@ -412,7 +432,7 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
     // Switch the action type to build action Key widget.
     switch (key.action ?? VirtualKeyboardKeyAction.SwitchLanguage) {
       case VirtualKeyboardKeyAction.Backspace:
-        actionKey = GestureDetector(
+        actionKey = InkWell(
             // onLongPress: () {
             //   print(" onlongpress ");
             //   //custom sumit code
@@ -437,13 +457,14 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
             //   // Cancel event loop
             //   longPress = false;
             // },
+
             child: SizedBox(
           height: double.infinity,
           width: double.infinity,
           child: Icon(
             Icons.backspace,
             color: textColor,
-            size: 16,
+            size: 15,
           ),
         ));
         break;
@@ -462,17 +483,17 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
               Icon(Icons.space_bar, color: textColor),
               if (widget.keyboardLanguage == 'english')
                 Text(
-                  'En',
+                  'eng',
                   style: TextStyle(color: textColor),
                 ),
               if (widget.keyboardLanguage == 'marathi')
                 Text(
-                  'Mr',
+                  'mar',
                   style: TextStyle(color: textColor),
                 ),
               if (widget.keyboardLanguage == 'hindi')
                 Text(
-                  'Hi',
+                  'hin',
                   style: TextStyle(color: textColor),
                 ),
             ],
@@ -510,6 +531,7 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
           "more",
           style: TextStyle(
             fontWeight: FontWeight.bold,
+            fontSize: 12,
           ),
         );
         break;
@@ -520,43 +542,47 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
         // );
         actionKey = const Text(
           "more",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 12,
+          ),
         );
         break;
 
       // custom end
-      case VirtualKeyboardKeyAction.SwitchLanguage:
-        actionKey = GestureDetector(
-            onTap: () {
-              setState(() {
-                customLayoutKeys.switchLanguage();
-              });
-            },
-            child: SizedBox(
-              height: double.infinity,
-              width: double.infinity,
-              child: Icon(
-                Icons.language,
-                color: textColor,
-              ),
-            ));
-        break;
+      // case VirtualKeyboardKeyAction.SwitchLanguage:
+      //   actionKey = GestureDetector(
+      //       onTap: () {
+      //         setState(() {
+      //           customLayoutKeys.switchLanguage();
+      //         });
+      //       },
+      //       child: SizedBox(
+      //         height: double.infinity,
+      //         width: double.infinity,
+      //         child: Icon(
+      //           Icons.language,
+      //           color: textColor,
+      //         ),
+      //       ));
+      //   break;
     }
 
     var wdgt = GestureDetector(
       onTap: () {
         //custom sumit code
         // print("haptic");
-        // HapticFeedback.lightImpact();
+        HapticFeedback.lightImpact();
         //ends
         if (key.action == VirtualKeyboardKeyAction.Shift) {
           if (!alwaysCaps) {
-            setState(() {
-              isShiftEnabled = !isShiftEnabled;
-            });
+            // setState(() {
+            isShiftEnabled = !isShiftEnabled;
+
+            // });
           }
         }
-
+        // actionButtonColor = Colors.amber;
         _onKeyPress(key);
       },
       onLongPress: () {
@@ -581,23 +607,28 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
       onLongPressUp: () {
         // Cancel event loop
         longPress = false;
+        actionButtonColor = Color(0xFFE6E6E6);
       },
       child: Container(
-        margin: const EdgeInsets.all(3),
-        decoration: const BoxDecoration(
+        margin: const EdgeInsets.all(1),
+        decoration: BoxDecoration(
             // border: Border.all(color: borderColor, width: 0),
             borderRadius: BorderRadius.all(Radius.circular(5)),
             // shape: BoxShape.circle,
             color: actionButtonColor),
         alignment: Alignment.center,
         height: customKeys
-            ? height / (keys.length + 1)
+            ? widget.keyboardLanguage == 'english'
+                ? (height / (keys.length + 0.25))
+                : (height / (keys.length + 0.4))
             : height / customLayoutKeys.activeLayout.length,
         child: actionKey,
       ),
     );
 
-    var spacebarWidget = GestureDetector(
+//
+//
+    var spacebarWidget = InkWell(
       onTap: () {
         _onKeyPress(key);
       },
@@ -608,24 +639,44 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
         // Call the long press callback function
         widget.spaceLongPressCallback!();
       },
-      onLongPressUp: () {
-        // Cancel event loop
-      },
       child: Container(
-        margin: const EdgeInsets.all(3),
-        decoration: const BoxDecoration(
-          // border: Border.all(color: borderColor, width: 0),
-          borderRadius: BorderRadius.all(Radius.circular(5)),
-          // shape: BoxShape.circle,
-          color: actionSpaceBarButtonColor,
+        margin: const EdgeInsets.symmetric(horizontal: 1, vertical: 1),
+        padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+        child: Ink(
+          height: customKeys
+              ? widget.keyboardLanguage == 'english'
+                  ? (height / (keys.length + 0.25))
+                  : (height / (keys.length + 0.4))
+              : height / customLayoutKeys.activeLayout.length,
+          decoration: const BoxDecoration(
+            // border: Border.all(color: borderColor, width: 0),
+            borderRadius: BorderRadius.all(Radius.circular(5)),
+            color: actionSpaceBarButtonColor,
+            // color: keyboardKeysColor,
+            // shape: BoxShape.circle,
+          ),
+          child: Container(
+            margin: const EdgeInsets.all(1),
+            decoration: const BoxDecoration(
+              // border: Border.all(color: borderColor, width: 0),
+              borderRadius: BorderRadius.all(Radius.circular(0)),
+              // shape: BoxShape.circle,
+            ),
+            alignment: Alignment.center,
+            child: actionKey,
+          ),
         ),
-        alignment: Alignment.center,
-        height: customKeys
-            ? height / (keys.length + 1)
-            : height / customLayoutKeys.activeLayout.length,
-        child: actionKey,
       ),
     );
+
+    // change keyboard backspace
+    if (key.action == VirtualKeyboardKeyAction.Backspace) {
+      return SizedBox(
+          // decoration:
+          //     BoxDecoration(border: Border.all(color: borderColor, width: 0)),
+          width: (width ?? MediaQuery.of(context).size.width) / 7,
+          child: wdgt);
+    }
 
     if (key.action == VirtualKeyboardKeyAction.Space) {
       return SizedBox(

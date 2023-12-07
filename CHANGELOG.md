@@ -1,3 +1,9 @@
+## 1.0.9
+
+- UI/UX changed
+- ripple effect 
+- color
+
 ## 1.0.8
 
 - UI/UX changed

@@ -135,8 +135,8 @@ class _KeyboardAuxState extends State<KeyboardAux> {
           break;
         default:
       }
+      setState(() {});
     }
     // Update the screen
-    setState(() {});
   }
 }

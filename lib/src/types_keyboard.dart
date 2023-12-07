@@ -99,7 +99,7 @@ extension TypeLayoutExtension on TypeLayout {
           ['अ', 'आ', 'इ', 'ई', 'उ', 'ऊ', 'ए', 'ऐ', 'ओ', 'औ'],
           ['अं', 'अः', "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
           ['ा', 'ि', 'ी', 'ु', 'ू', 'े', 'ै', 'ो'],
-          ['HindiLayout1', 'ौ', 'ं', 'ँ', '्', 'ॐ', '।', '॥', "BACKSPACE"],
+          ['HindiLayout1', 'ौ', 'ं', 'ँ', 'ृ', 'ॐ', '।', '॥', "BACKSPACE"],
           ["NumbersAndSymbols", '।', "SPACE", 'ऋ', '्', "RETURN"],
         ];
       case TypeLayout.marathi1:
@@ -138,7 +138,7 @@ extension TypeLayoutExtension on TypeLayout {
           ['अ', 'आ', 'इ', 'ई', 'उ', 'ऊ', 'ए', 'ऐ', 'ओ', 'औ'],
           ['अं', 'अः', "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
           ['ा', 'ि', 'ी', 'ु', 'ू', 'े', 'ै', 'ो'],
-          ['MarathiLayout1', 'ौ', 'ं', 'ँ', '्', 'ॐ', '।', '॥', "BACKSPACE"],
+          ['MarathiLayout1', 'ौ', 'ं', 'ँ', 'ृ', 'ॐ', '।', '॥', "BACKSPACE"],
           ["NumbersAndSymbols", '.', "SPACE", 'ऋ', '्', "RETURN"],
         ];
       default:
