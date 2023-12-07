@@ -1,3 +1,8 @@
+## 2.0.0
+
+- action button border issue solved
+
+
 ## 1.0.9
 
 - UI/UX changed

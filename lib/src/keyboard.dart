@@ -607,11 +607,11 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
       onLongPressUp: () {
         // Cancel event loop
         longPress = false;
-        actionButtonColor = Color(0xFFE6E6E6);
+        // actionButtonColor = Color(0xFFE6E6E6);
       },
       child: Container(
         margin: const EdgeInsets.all(1),
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             // border: Border.all(color: borderColor, width: 0),
             borderRadius: BorderRadius.all(Radius.circular(5)),
             // shape: BoxShape.circle,
