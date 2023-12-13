@@ -1,3 +1,7 @@
+## 2.0.1
+
+- longpress on numpad button and enter button removed
+
 ## 2.0.0
 
 - action button border issue solved

@@ -591,7 +591,9 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
         print("haptic");
         HapticFeedback.lightImpact();
         //ends
-        longPress = true;
+        if (key.action == VirtualKeyboardKeyAction.Backspace) {
+          longPress = true;
+        }
         // Start sending backspace key events while longPress is true
         Timer.periodic(
             const Duration(milliseconds: _virtualKeyboardBackspaceEventPerioud),
