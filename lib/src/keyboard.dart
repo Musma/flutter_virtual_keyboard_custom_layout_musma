@@ -73,7 +73,7 @@ class VirtualKeyboard extends StatefulWidget {
       this.height = _virtualKeyboardDefaultHeight,
       this.textColor = Colors.black,
       this.fontSize = 14,
-      this.alwaysCaps = false,
+      required this.alwaysCaps,
       this.keys,
       this.borderColor,
       this.keyboardLanguage,
@@ -97,7 +97,7 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
   double? width;
   late Color textColor;
   late double fontSize;
-  late bool alwaysCaps;
+  bool alwaysCaps = false;
   late bool reverseLayout;
   late VirtualKeyboardLayoutKeys customLayoutKeys;
   // Text Style for keys.
@@ -107,7 +107,7 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
   bool customKeys = false;
   late Color borderColor;
   // True if shift is enabled.
-  bool isShiftEnabled = false;
+  bool isShiftEnabled = true;
 
   void _onKeyPress(VirtualKeyboardKey key) {
     final currentOffset = textController.selection.baseOffset == -1
@@ -117,8 +117,15 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
     final TextSelection newSelection;
     if (key.keyType == VirtualKeyboardKeyType.String) {
       final String newCharacters;
-      if (alwaysCaps || isShiftEnabled) {
+      if (alwaysCaps) {
+        newCharacters = key.capsText ?? "";
+      } else if (isShiftEnabled) {
         newCharacters = key.capsText ?? '';
+        setState(() {
+          if (isShiftEnabled) {
+            isShiftEnabled = false;
+          }
+        });
       } else {
         newCharacters = key.text ?? '';
       }
@@ -147,7 +154,14 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
             textController.value =
                 TextEditingValue(text: newText, selection: newSelection);
           } else {
-            if (textController.text.isEmpty || currentOffset < 1) return;
+            if (textController.text.isEmpty || currentOffset < 1) {
+              if (!isShiftEnabled) {
+                setState(() {
+                  isShiftEnabled = true;
+                });
+              }
+              return;
+            }
             newText = textController.text.substring(0, currentOffset - 1) +
                 textController.text.substring(currentOffset);
             newSelection = TextSelection.collapsed(offset: currentOffset - 1);
@@ -163,6 +177,11 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
               offset: currentOffset + (key.text?.length ?? 1));
           textController.value =
               TextEditingValue(text: newText, selection: newSelection);
+          setState(() {
+            if (!isShiftEnabled) {
+              isShiftEnabled = true;
+            }
+          });
           break;
         case VirtualKeyboardKeyAction.Space:
           newText = textController.text.substring(0, currentOffset) +
@@ -172,13 +191,21 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
               offset: currentOffset + (key.text?.length ?? 1));
           textController.value =
               TextEditingValue(text: newText, selection: newSelection);
+          print(newText.substring(newText.length - 2, newText.length));
+          if (newText.substring(newText.length - 2, newText.length) == ". ") {
+            if (!isShiftEnabled) {
+              setState(() {
+                isShiftEnabled = true;
+              });
+            }
+          }
           break;
         case VirtualKeyboardKeyAction.Shift:
+          isShiftEnabled = !isShiftEnabled;
           break;
         default:
       }
     }
-
     onKeyPress?.call(key);
   }
 
@@ -378,6 +405,7 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
   Widget _keyboardDefaultKey(VirtualKeyboardKey key) {
     return Expanded(
       child: InkWell(
+        splashColor: actionButtonColor,
         onTap: () {
           // HapticFeedback.lightImpact();
           _onKeyPress(key);
@@ -469,7 +497,13 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
         ));
         break;
       case VirtualKeyboardKeyAction.Shift:
-        actionKey = Icon(Icons.arrow_upward, color: textColor);
+        actionKey = Icon(
+            alwaysCaps
+                ? Icons.arrow_circle_up_outlined
+                : isShiftEnabled
+                    ? Icons.arrow_upward
+                    : Icons.keyboard_arrow_up_outlined,
+            color: textColor);
         break;
       case VirtualKeyboardKeyAction.Space:
         actionKey = Padding(
@@ -574,17 +608,20 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
         // print("haptic");
         HapticFeedback.lightImpact();
         //ends
-        if (key.action == VirtualKeyboardKeyAction.Shift) {
-          if (!alwaysCaps) {
-            // setState(() {
-            isShiftEnabled = !isShiftEnabled;
-
-            // });
-          }
-        }
         // actionButtonColor = Colors.amber;
         _onKeyPress(key);
       },
+      onDoubleTap: key.action == VirtualKeyboardKeyAction.Shift
+          ? () {
+              if (key.action == VirtualKeyboardKeyAction.Shift) {
+                setState(() {
+                  alwaysCaps = !alwaysCaps;
+                  isShiftEnabled = false;
+                });
+                HapticFeedback.lightImpact();
+              }
+            }
+          : null,
       onLongPress: () {
         print(" onlongpress ");
         //custom sumit code
@@ -630,7 +667,8 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
 
 //
 //
-    var spacebarWidget = InkWell(
+    var spaceBarWidget = InkWell(
+      splashColor: actionButtonColor,
       onTap: () {
         _onKeyPress(key);
       },
@@ -685,7 +723,7 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
           // decoration:
           //     BoxDecoration(border: Border.all(color: borderColor, width: 0)),
           width: (width ?? MediaQuery.of(context).size.width) / 2,
-          child: spacebarWidget);
+          child: spaceBarWidget);
     } else {
       return Expanded(child: wdgt);
     }

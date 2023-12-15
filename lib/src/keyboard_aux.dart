@@ -25,7 +25,7 @@ class KeyboardAux extends StatefulWidget {
   State<KeyboardAux> createState() => _KeyboardAuxState();
 }
 
-bool shiftEnabled = false;
+bool shiftEnabled = true;
 
 class _KeyboardAuxState extends State<KeyboardAux> {
 // Function to check the screen orientation
@@ -131,7 +131,7 @@ class _KeyboardAuxState extends State<KeyboardAux> {
           widget.text = widget.text + key.text!;
           break;
         case VirtualKeyboardKeyAction.Shift:
-          shiftEnabled = !shiftEnabled;
+          // shiftEnabled = !shiftEnabled;
           break;
         default:
       }
