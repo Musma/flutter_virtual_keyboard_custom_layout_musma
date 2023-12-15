@@ -191,7 +191,6 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
               offset: currentOffset + (key.text?.length ?? 1));
           textController.value =
               TextEditingValue(text: newText, selection: newSelection);
-          print(newText.substring(newText.length - 2, newText.length));
           if (newText.substring(newText.length - 2, newText.length) == ". ") {
             if (!isShiftEnabled) {
               setState(() {
@@ -606,7 +605,6 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
       onTap: () {
         //custom sumit code
         // print("haptic");
-        HapticFeedback.lightImpact();
         //ends
         // actionButtonColor = Colors.amber;
         _onKeyPress(key);
@@ -618,15 +616,16 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
                   alwaysCaps = !alwaysCaps;
                   isShiftEnabled = false;
                 });
-                HapticFeedback.lightImpact();
               }
             }
           : null,
       onLongPress: () {
-        print(" onlongpress ");
+        if (kDebugMode) {
+          print(" onlongpress ");
+          print("haptic");
+        }
         //custom sumit code
-        print("haptic");
-        HapticFeedback.lightImpact();
+
         //ends
         if (key.action == VirtualKeyboardKeyAction.Backspace) {
           longPress = true;
@@ -674,7 +673,6 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
       },
       onLongPress: () {
         // Add haptic feedback before calling the callback function
-        HapticFeedback.lightImpact();
 
         // Call the long press callback function
         widget.spaceLongPressCallback!();
