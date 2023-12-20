@@ -1,3 +1,7 @@
+## 2.0.2
+
+- haptic removed minor fix
+
 ## 2.0.1
 
 - longpress on numpad button and enter button removed
