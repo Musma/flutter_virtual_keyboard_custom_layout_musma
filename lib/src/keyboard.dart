@@ -88,6 +88,9 @@ class VirtualKeyboard extends StatefulWidget {
 
 /// Holds the state for Virtual Keyboard class.
 class _VirtualKeyboardState extends State<VirtualKeyboard> {
+  final double heightOffesetEnglish = 0.8;
+  final double heightOffesetOthers = 0.4;
+
   late VirtualKeyboardType type;
   Function? onKeyPress;
   late TextEditingController textController;
@@ -421,13 +424,13 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
         // message: key.text,
 
         child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 1, vertical: 1),
+          margin: const EdgeInsets.symmetric(horizontal: 3, vertical: 3),
           padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
           child: Ink(
             height: customKeys
                 ? widget.keyboardLanguage == 'english'
-                    ? (height / (keys.length + 0.25))
-                    : (height / (keys.length + 0.4))
+                    ? (height / (keys.length + heightOffesetEnglish))
+                    : (height / (keys.length + heightOffesetOthers))
                 : height / customLayoutKeys.activeLayout.length,
             decoration: const BoxDecoration(
               // border: Border.all(color: borderColor, width: 0),
@@ -657,8 +660,8 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
         alignment: Alignment.center,
         height: customKeys
             ? widget.keyboardLanguage == 'english'
-                ? (height / (keys.length + 0.25))
-                : (height / (keys.length + 0.4))
+                ? (height / (keys.length + heightOffesetEnglish))
+                : (height / (keys.length + heightOffesetOthers))
             : height / customLayoutKeys.activeLayout.length,
         child: actionKey,
       ),
@@ -678,13 +681,13 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
         widget.spaceLongPressCallback!();
       },
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 1, vertical: 1),
+        margin: const EdgeInsets.symmetric(horizontal: 3, vertical: 3),
         padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
         child: Ink(
           height: customKeys
               ? widget.keyboardLanguage == 'english'
-                  ? (height / (keys.length + 0.25))
-                  : (height / (keys.length + 0.4))
+                  ? (height / (keys.length + heightOffesetEnglish))
+                  : (height / (keys.length + heightOffesetOthers))
               : height / customLayoutKeys.activeLayout.length,
           decoration: const BoxDecoration(
             // border: Border.all(color: borderColor, width: 0),
