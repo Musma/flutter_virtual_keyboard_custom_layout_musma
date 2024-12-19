@@ -1,4 +1,4 @@
-part of virtual_keyboard_custom_layout_onex;
+part of flutter_virtual_keyboard_custom_layout_musma;
 
 /// alphabet: all letters, return, backspace, shift, space.
 /// numeric: 0-9, return, backspace.

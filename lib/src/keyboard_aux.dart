@@ -1,4 +1,4 @@
-part of virtual_keyboard_custom_layout_onex;
+part of flutter_virtual_keyboard_custom_layout_musma;
 
 // ignore: must_be_immutable
 class KeyboardAux extends StatefulWidget {
@@ -47,7 +47,7 @@ class _KeyboardAuxState extends State<KeyboardAux> {
                   : MediaQuery.of(context).size.height * 0.33, // Portrait mode
               width: MediaQuery.of(context).size.width,
               fontSize: 20,
-              textColor: Color.fromARGB(255, 51, 51, 51),
+              textColor: const Color.fromARGB(255, 51, 51, 51),
               keyboardLanguage: widget.keyboardLanguage,
               textController: widget.controller,
               defaultLayouts: const [

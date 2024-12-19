@@ -1,9 +1,8 @@
-library virtual_keyboard_custom_layout_onex;
+library flutter_virtual_keyboard_custom_layout_musma;
 
 import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 part './src/key_action.dart';
 part './src/key_type.dart';

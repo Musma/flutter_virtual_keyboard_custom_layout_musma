@@ -1,14 +1,16 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
-import 'virtual_keyboard_custom_layout_onex_method_channel.dart';
+import 'flutter_virtual_keyboard_custom_layout_musma_method_channel.dart';
 
-abstract class VirtualKeyboardCustomLayoutOnexPlatform extends PlatformInterface {
+abstract class VirtualKeyboardCustomLayoutOnexPlatform
+    extends PlatformInterface {
   /// Constructs a VirtualKeyboardCustomLayoutOnexPlatform.
   VirtualKeyboardCustomLayoutOnexPlatform() : super(token: _token);
 
   static final Object _token = Object();
 
-  static VirtualKeyboardCustomLayoutOnexPlatform _instance = MethodChannelVirtualKeyboardCustomLayoutOnex();
+  static VirtualKeyboardCustomLayoutOnexPlatform _instance =
+      MethodChannelVirtualKeyboardCustomLayoutOnex();
 
   /// The default instance of [VirtualKeyboardCustomLayoutOnexPlatform] to use.
   ///

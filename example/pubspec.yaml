@@ -1,10 +1,10 @@
-name: virtual_keyboard_custom_layout_example
+name: flutter_virtual_keyboard_custom_layout_example
 description: Behaves exactly like virtual_keyboard_multi_language, but with an easy way to use a customized keyboard layout.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 
 environment:
-  sdk: ">=2.17.2 <3.0.0"
+  sdk: '>=2.17.2 <3.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -16,7 +16,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  virtual_keyboard_custom_layout_onex:
+  flutter_virtual_keyboard_custom_layout_musma:
     path: ../
 
   # The following adds the Cupertino Icons font to your application.

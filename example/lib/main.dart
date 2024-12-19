@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:virtual_keyboard_custom_layout_onex/virtual_keyboard_custom_layout_onex.dart';
+import 'package:flutter_virtual_keyboard_custom_layout_musma/flutter_virtual_keyboard_custom_layout_musma.dart';
 
 void main() => runApp(const MyApp());
 

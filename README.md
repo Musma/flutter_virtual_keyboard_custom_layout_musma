@@ -1,40 +1,8 @@
-# virtual_keyboard_custom_layout_onex
+# flutter_virtual_keyboard_custom_layout_musma
 
-Attribution to dev -  EliasDalvite and owner of virtual_keyboard_multi_language
+fork from ysumiit005/virtual_keyboard_custom_layout_onex
 
-
-# Goal
-- keyboard with no clipboard
-- hindi keyboard (devnagri - india)
-- marathi supported (devnagri)
-- english supported 
-- symbols supported
-- good UI (on demand customisable)
-- easy customised modifiable keyboard for other languages aswell
-- landscape supported
-- 😎 feels great
-
-
-
-<br>
-<p align="center">
-<img style="width:200px;" alt="FlutterBlue" src="https://github.com/ysumiit005/virtual_keyboard_custom_layout_onex/blob/master/s1.jpg?raw=true" />
-</p>
-<br>
-<p align="center">
-<img style="width:200px;" alt="FlutterBlue" src="https://github.com/ysumiit005/virtual_keyboard_custom_layout_onex/blob/master/s2.jpg?raw=true" />
-</p>
-<br>
-<p align="center">
-<img style="width:200px;" alt="FlutterBlue" src="https://github.com/ysumiit005/virtual_keyboard_custom_layout_onex/blob/master/s3.jpg?raw=true" />
-</p>
-<p align="center">
-<img style="height:200px;" alt="FlutterBlue" src="https://github.com/ysumiit005/virtual_keyboard_custom_layout_onex/blob/master/s4.jpg?raw=true" />
-</p>
-<p align="center">
-<img style="width:200px;" alt="FlutterBlue" src="https://github.com/ysumiit005/virtual_keyboard_custom_layout_onex/blob/master/s5.jpg?raw=true" />
-</p>
-<hr>
+Attribution to dev - EliasDalvite and owner of virtual_keyboard_multi_language
 
 ```dart
 // main code
@@ -253,13 +221,4 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 ```
 
-
-
-# help/support 
-- Message on linkedin for priority help related to this package or if need to contact me for any issues 
-- https://www.linkedin.com/in/sumiit-yadav/ 
-
-
-- [Onex Sumit](https://github.com/ysumiit005)
 - [LICENSE - MIT](https://github.com/ahmed-eg/virtual_keyboard_multi_language/blob/master/LICENSE)
-

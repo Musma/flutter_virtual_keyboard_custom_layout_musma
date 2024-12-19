@@ -1,8 +1,7 @@
-name: virtual_keyboard_custom_layout_onex
-description: "Custom in App keyboard supporting English, Hindi, Marathi & Symbols. Nice UI/UX"
+name: flutter_virtual_keyboard_custom_layout_musma
+description: 'Custom in App keyboard supporting English, Hindi, Marathi & Symbols. Nice UI/UX'
 version: 2.0.2
-repository: "https://github.com/ysumiit005/virtual_keyboard_custom_layout_onex"
-issue_tracker: "https://github.com/ysumiit005/virtual_keyboard_custom_layout_onex/issues"
+repository: 'https://github.com/Musma/flutter_virtual_keyboard_custom_layout_musma'
 
 topics:
   - keyboard
@@ -11,8 +10,8 @@ topics:
   - no-clipboard
 
 environment:
-  sdk: ">=2.17.2 <4.0.0"
-  flutter: ">=2.5.0"
+  sdk: '>=2.17.2 <4.0.0'
+  flutter: '>=2.5.0'
 
 platforms:
   web:

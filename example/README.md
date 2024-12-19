@@ -1,6 +1,6 @@
-# virtual_keyboard_custom_layout_onex_example
+# flutter_virtual_keyboard_custom_layout_example
 
-Demonstrates how to use the virtual_keyboard_custom_layout_onex plugin.
+Demonstrates how to use the flutter virtual_keyboard_custom_layout_musma plugin.
 
 ## Getting Started
 

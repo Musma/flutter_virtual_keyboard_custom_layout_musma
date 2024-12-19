@@ -1,4 +1,4 @@
-part of virtual_keyboard_custom_layout_onex;
+part of flutter_virtual_keyboard_custom_layout_musma;
 
 /// The default keyboard height. Can we overriden by passing
 ///  `height` argument to `VirtualKeyboard` widget.
