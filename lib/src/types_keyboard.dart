@@ -29,7 +29,7 @@ extension TypeLayoutExtension on TypeLayout {
           ["1", "2", "3"],
           ["4", "5", "6"],
           ["7", "8", "9"],
-          ["BACKSPACE", "0", "RETURN"],
+          [".", "0", "BACKSPACE"],
         ];
       case TypeLayout.alphaEmail:
         // keyboard like samsung keyboard |
