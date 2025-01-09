@@ -145,9 +145,10 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
     } else if (key.keyType == VirtualKeyboardKeyType.Action) {
       switch (key.action) {
         case VirtualKeyboardKeyAction.Backspace:
-          if (textController.selection
-              .textInside(textController.text)
-              .isNotEmpty) {
+          if (textController.selection.isValid &&
+              textController.selection
+                  .textInside(textController.text)
+                  .isNotEmpty) {
             int startIndex = textController.selection.start;
             int lastIndex = textController.selection.end;
             newText =
