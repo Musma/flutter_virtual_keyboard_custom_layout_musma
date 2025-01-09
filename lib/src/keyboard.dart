@@ -88,7 +88,7 @@ class VirtualKeyboard extends StatefulWidget {
 
 /// Holds the state for Virtual Keyboard class.
 class _VirtualKeyboardState extends State<VirtualKeyboard> {
-  final double heightOffesetEnglish = 0.8;
+  final double heightOffesetEnglish = 0.26;
   final double heightOffesetOthers = 0.4;
 
   late VirtualKeyboardType type;
@@ -464,39 +464,10 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
     switch (key.action ?? VirtualKeyboardKeyAction.SwitchLanguage) {
       case VirtualKeyboardKeyAction.Backspace:
         actionKey = InkWell(
-            // onLongPress: () {
-            //   print(" onlongpress ");
-            //   //custom sumit code
-            //   print("haptic");
-            //   HapticFeedback.lightImpact();
-            //   //ends
-            //   longPress = true;
-            //   // Start sending backspace key events while longPress is true
-            //   Timer.periodic(
-            //       const Duration(
-            //           milliseconds: _virtualKeyboardBackspaceEventPerioud),
-            //       (timer) {
-            //     if (longPress) {
-            //       _onKeyPress(key);
-            //     } else {
-            //       // Cancel timer.
-            //       timer.cancel();
-            //     }
-            //   });
-            // },
-            // onLongPressUp: () {
-            //   // Cancel event loop
-            //   longPress = false;
-            // },
-
-            child: SizedBox(
-          height: double.infinity,
-          width: double.infinity,
-          child: Icon(
-            Icons.backspace,
-            color: textColor,
-            size: 15,
-          ),
+            child: Icon(
+          Icons.backspace,
+          color: textColor,
+          size: 25,
         ));
         break;
       case VirtualKeyboardKeyAction.Shift:
