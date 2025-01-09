@@ -62,6 +62,60 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     // keyboardListeners();
     super.initState();
+    controllerField01.addListener(() {
+      controllerKeyboard.text =
+          inputFilterForIp(controllerKeyboard.text).toString();
+    });
+  }
+
+  StringBuffer inputFilterForIp(String newValueText) {
+    StringBuffer newText = StringBuffer();
+
+    final String digitsAndDotsOnly =
+        newValueText.replaceAll(RegExp(r'[^0-9.]'), '');
+
+    int dotCount = 0;
+    for (int i = 0; i < digitsAndDotsOnly.length; i++) {
+      final char = digitsAndDotsOnly[i];
+      String lastChar = (i - 1) > 0 ? digitsAndDotsOnly[i - 1] : '';
+      if (char == '0' ||
+          char == '1' ||
+          char == '2' ||
+          char == '3' ||
+          char == '4' ||
+          char == '5' ||
+          char == '6' ||
+          char == '7' ||
+          char == '8' ||
+          char == '9') {
+        if (newText.length % 4 == 3 && dotCount < 3 && lastChar != '.') {
+          newText.write('.');
+          dotCount++;
+        }
+        newText.write(char);
+      } else if (char == '.') {
+        newText.write(char);
+        dotCount++;
+      }
+    }
+
+    // 마지막 문자가 '..'이면 삭제
+    String lastChar = '';
+    if (newValueText.isNotEmpty) {
+      lastChar = newValueText.substring(newValueText.length - 1);
+    }
+    String lastChar2 = '';
+    if (newValueText.length >= 2) {
+      lastChar2 = newValueText.substring(
+          newValueText.length - 2, newValueText.length - 1);
+    }
+
+    if (lastChar == '.' && lastChar2 == '.') {
+      newText =
+          StringBuffer(newText.toString().substring(0, newText.length - 1));
+    }
+
+    return newText;
   }
 
   void showSelectionDialog() {
@@ -154,6 +208,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     controller: controllerField01,
                     maxLines: null,
                     minLines: null,
+                    maxLength: 10,
                     onTap: () {
                       setState(() {
                         isKeyboardVisible = true;
