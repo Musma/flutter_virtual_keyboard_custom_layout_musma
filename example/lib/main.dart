@@ -213,7 +213,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       setState(() {
                         isKeyboardVisible = true;
                         controllerKeyboard = controllerField01;
-                        // typeLayout = TypeLayout.hindi1;
+                        typeLayout = TypeLayout.numeric;
                       });
                     },
                   ),
@@ -226,7 +226,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       setState(() {
                         isKeyboardVisible = true;
                         controllerKeyboard = controllerField02;
-                        // typeLayout = TypeLayout.alphaEmail;
+                        typeLayout = TypeLayout.alphaEmail;
                       });
                     },
                   ),
