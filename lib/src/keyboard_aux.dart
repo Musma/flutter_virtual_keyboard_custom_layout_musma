@@ -46,7 +46,7 @@ class _KeyboardAuxState extends State<KeyboardAux> {
                   ? MediaQuery.of(context).size.height * 0.6 // Landscape mode
                   : MediaQuery.of(context).size.height * 0.33, // Portrait mode
               width: MediaQuery.of(context).size.width,
-              fontSize: 20,
+              fontSize: 26,
               textColor: const Color.fromARGB(255, 51, 51, 51),
               keyboardLanguage: widget.keyboardLanguage,
               textController: widget.controller,

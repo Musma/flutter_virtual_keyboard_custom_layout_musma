@@ -88,7 +88,7 @@ class VirtualKeyboard extends StatefulWidget {
 
 /// Holds the state for Virtual Keyboard class.
 class _VirtualKeyboardState extends State<VirtualKeyboard> {
-  final double heightOffesetEnglish = 0.26;
+  final double heightOffesetEnglish = 0.0;
   final double heightOffesetOthers = 0.4;
 
   late VirtualKeyboardType type;
@@ -313,7 +313,7 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
 
   Widget _custom() {
     return SizedBox(
-      height: height,
+      height: height + 20,
       width: width ?? MediaQuery.of(context).size.width,
       child: Padding(
         padding: const EdgeInsets.all(0),
@@ -410,45 +410,30 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
       child: InkWell(
         splashColor: actionButtonColor,
         onTap: () {
-          // HapticFeedback.lightImpact();
           _onKeyPress(key);
         },
-        // triggerMode: TooltipTriggerMode.tap,
-        // // waitDuration: const Duration(milliseconds: 50),
-        // height: 50,
-        // decoration: const BoxDecoration(
-        //   color: Colors.black,
-        // ),
-        // textStyle: const TextStyle(color: Colors.white, fontSize: 25),
-        // preferBelow: false,
-        // showDuration: const Duration(milliseconds: 150),
-        // message: key.text,
-
         child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 3, vertical: 3),
-          padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+          // margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
+          padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
           child: Ink(
             height: customKeys
                 ? widget.keyboardLanguage == 'english'
                     ? (height / (keys.length + heightOffesetEnglish))
                     : (height / (keys.length + heightOffesetOthers))
                 : height / customLayoutKeys.activeLayout.length,
-            decoration: const BoxDecoration(
-              // border: Border.all(color: borderColor, width: 0),
-              borderRadius: BorderRadius.all(Radius.circular(5)),
+            decoration: BoxDecoration(
+              border: Border.all(color: borderColor, width: 1),
+              borderRadius: const BorderRadius.all(Radius.circular(12)),
               color: keyboardKeysColor,
               // color: keyboardKeysColor,
-              // shape: BoxShape.circle,
             ),
-            child: Container(
-              child: Center(
-                  child: Text(
-                alwaysCaps
-                    ? key.capsText ?? ''
-                    : (isShiftEnabled ? key.capsText : key.text) ?? '',
-                style: textStyle,
-              )),
-            ),
+            child: Center(
+                child: Text(
+              alwaysCaps
+                  ? key.capsText ?? ''
+                  : (isShiftEnabled ? key.capsText : key.text) ?? '',
+              style: textStyle,
+            )),
           ),
         ),
       ),
@@ -463,56 +448,26 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
     // Switch the action type to build action Key widget.
     switch (key.action ?? VirtualKeyboardKeyAction.SwitchLanguage) {
       case VirtualKeyboardKeyAction.Backspace:
-        actionKey = InkWell(
-            child: Icon(
+        actionKey = Icon(
           Icons.backspace,
           color: textColor,
-          size: 25,
-        ));
+          size: 30,
+        );
         break;
       case VirtualKeyboardKeyAction.Shift:
         actionKey = Icon(
-            alwaysCaps
-                ? Icons.arrow_circle_up_outlined
-                : isShiftEnabled
-                    ? Icons.arrow_upward
-                    : Icons.keyboard_arrow_up_outlined,
-            color: textColor);
+          alwaysCaps
+              ? Icons.arrow_circle_up_outlined
+              : isShiftEnabled
+                  ? Icons.arrow_upward
+                  : Icons.keyboard_arrow_up_outlined,
+          color: textColor,
+          size: 30,
+        );
         break;
       case VirtualKeyboardKeyAction.Space:
-        actionKey = Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                width: 20,
-              ),
-              Icon(Icons.space_bar, color: textColor),
-              if (widget.keyboardLanguage == 'english')
-                Text(
-                  'eng',
-                  style: TextStyle(color: textColor),
-                ),
-              if (widget.keyboardLanguage == 'marathi')
-                Text(
-                  'mar',
-                  style: TextStyle(color: textColor),
-                ),
-              if (widget.keyboardLanguage == 'hindi')
-                Text(
-                  'hin',
-                  style: TextStyle(color: textColor),
-                ),
-            ],
-          ),
-        );
-
-        // custom ends
-        // actionKey = Padding(
-        //   padding: const EdgeInsets.symmetric(horizontal: 0.0),
-        //   child: Icon(Icons.space_bar, color: textColor),
-        // );
+        actionKey =
+            Center(child: Icon(Icons.space_bar, color: textColor, size: 28));
         break;
       case VirtualKeyboardKeyAction.Return:
         actionKey = Icon(
@@ -557,31 +512,12 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
         );
         break;
 
-      // custom end
-      // case VirtualKeyboardKeyAction.SwitchLanguage:
-      //   actionKey = GestureDetector(
-      //       onTap: () {
-      //         setState(() {
-      //           customLayoutKeys.switchLanguage();
-      //         });
-      //       },
-      //       child: SizedBox(
-      //         height: double.infinity,
-      //         width: double.infinity,
-      //         child: Icon(
-      //           Icons.language,
-      //           color: textColor,
-      //         ),
-      //       ));
-      //   break;
+      case VirtualKeyboardKeyAction.SwitchLanguage:
+        break;
     }
 
     var wdgt = GestureDetector(
       onTap: () {
-        //custom sumit code
-        // print("haptic");
-        //ends
-        // actionButtonColor = Colors.amber;
         _onKeyPress(key);
       },
       onDoubleTap: key.action == VirtualKeyboardKeyAction.Shift
@@ -624,9 +560,9 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
       },
       child: Container(
         margin: const EdgeInsets.all(1),
-        decoration: const BoxDecoration(
-            // border: Border.all(color: borderColor, width: 0),
-            borderRadius: BorderRadius.all(Radius.circular(5)),
+        decoration: BoxDecoration(
+            border: Border.all(color: borderColor, width: 1),
+            borderRadius: const BorderRadius.all(Radius.circular(12)),
             // shape: BoxShape.circle,
             color: actionButtonColor),
         alignment: Alignment.center,
@@ -653,31 +589,20 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
         widget.spaceLongPressCallback!();
       },
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 3, vertical: 3),
-        padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+        // margin: const EdgeInsets.symmetric(horizontal: 3, vertical: 3),
+        padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
         child: Ink(
           height: customKeys
               ? widget.keyboardLanguage == 'english'
                   ? (height / (keys.length + heightOffesetEnglish))
                   : (height / (keys.length + heightOffesetOthers))
               : height / customLayoutKeys.activeLayout.length,
-          decoration: const BoxDecoration(
-            // border: Border.all(color: borderColor, width: 0),
-            borderRadius: BorderRadius.all(Radius.circular(5)),
+          decoration: BoxDecoration(
+            border: Border.all(color: borderColor, width: 1),
+            borderRadius: const BorderRadius.all(Radius.circular(12)),
             color: actionSpaceBarButtonColor,
-            // color: keyboardKeysColor,
-            // shape: BoxShape.circle,
           ),
-          child: Container(
-            margin: const EdgeInsets.all(1),
-            decoration: const BoxDecoration(
-              // border: Border.all(color: borderColor, width: 0),
-              borderRadius: BorderRadius.all(Radius.circular(0)),
-              // shape: BoxShape.circle,
-            ),
-            alignment: Alignment.center,
-            child: actionKey,
-          ),
+          child: actionKey,
         ),
       ),
     );
